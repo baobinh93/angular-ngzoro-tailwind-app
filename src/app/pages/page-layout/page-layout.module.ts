@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PageLayoutComponent } from './page-layout.component';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { PageHomeComponent } from '../page-home/page-home.component';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 let router: Routes = [
   {
@@ -21,7 +22,7 @@ let router: Routes = [
   },
 ];
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(router)],
+  imports: [CommonModule, RouterModule.forChild(router), ComponentsModule],
   declarations: [PageLayoutComponent],
   exports: [PageLayoutComponent],
 })
