@@ -1,11 +1,13 @@
-<div class="container mx-auto bg-red-600">
-  <div class="bg-slate-200 w-full text-right pr-4">
-    <span class="text-sky-900 text-base font-normal">
-      <i class="fa-solid fa-phone"></i>
-      0989 048 497
-    </span>
+<div class="">
+  <div class="bg-[#f1f1f1] w-full text-right pr-4">
+    <div class="container mx-auto">
+      <span class="text-[#191818] text-base font-normal">
+        <i class="fa-solid fa-phone"></i>
+        Hotline: 0989 048 497
+      </span>
+    </div>
   </div>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white clear-both">
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-white clear-both">
     <a class="navbar-brand bottom-2 relative" href="">
       <img [src]="imageLogo" alt="" class="w-44 h-auto" />
     </a>
@@ -38,10 +40,121 @@
         </li>
       </ul>
       <button
-        class="transition-colors ease-in-out rounded px-2 py-2 text-white hover:text-sky-900 bg-sky-900 hover:bg-cyan-600"
+        class="transition-colors ease-in-out rounded p-2.5 bg-sky-900 hover:bg-cyan-600"
       >
-        <span class="text-base"> LIÊN HỆ </span>
+        <span class="text-base text-white"> LIÊN HỆ </span>
       </button>
     </div>
-  </nav>
+  </nav> -->
+  <div class="bg-white">
+    <nav
+      class="container mx-auto relative flex flex-wrap items-center justify-between px-2 py-3 clear-both"
+    >
+      <a class="bottom-2 relative" href="">
+        <img [src]="imageLogo" alt="" class="w-44 h-auto" />
+      </a>
+      <div>
+        <button
+          class="block lg:hidden mr-4 border-2 border-rose-500 p-2 rounded hover:opacity-75"
+          type="button"
+          (click)="this.isVisible = !this.isVisible"
+          #navbarBtn
+        >
+          <i class="fa-solid fa-bars text-base text-rose-500"></i>
+        </button>
+        <div
+          class="nav-bar--dropdown absolute top-16 right-0 left-0 animate__animated z-10"
+          [ngClass]="
+            this.isVisible
+              ? ' hidden'
+              : 'block animate__slideInDown animate__fast'
+          "
+        >
+          <div class="bg-zinc-50">
+            <ul
+              class="flex flex-col items-stretch list-none mr-auto mb-0 text-base font-semibold"
+            >
+              <li class="nav-item w-100 active border-b-2 mt-1">
+                <a
+                  class="px-3 py-2 flex items-center uppercase font-medium leading-relaxed text-blue-800 hover:opacity-75"
+                  href="/"
+                >
+                  TRANG CHỦ
+                </a>
+              </li>
+              <li class="nav-item w-100 active border-b-2 mt-1">
+                <a
+                  class="px-3 py-2 flex items-center uppercase font-medium leading-relaxed text-blue-800 hover:opacity-75"
+                  href="/dich-vu"
+                  >DỊCH VỤ</a
+                >
+              </li>
+              <li class="nav-item w-100 active border-b-2 mt-1">
+                <a
+                  class="px-3 py-2 flex items-center uppercase font-medium leading-relaxed text-blue-800 hover:opacity-75"
+                  href="/khuyen-mai"
+                  >KHUYẾN MÃI</a
+                >
+              </li>
+              <li class="nav-item w-100 active border-b-2 mt-1">
+                <a
+                  class="px-3 py-2 flex items-center uppercase font-medium leading-relaxed text-blue-800 hover:opacity-75"
+                  href="/tin-tuc"
+                  >TIN TỨC</a
+                >
+              </li>
+              <li class="nav-item w-100 active border-b-2 mt-1">
+                <button
+                  class="px-3 py-2 flex items-center uppercase font-medium leading-relaxed text-blue-800 hover:opacity-75"
+                >
+                  Liên Hệ
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden lg:flex flex-grow items-baseline">
+        <ul
+          class="m-4 flex flex-col lg:flex-row list-none mr-auto text-base font-semibold"
+        >
+          <li class="nav-item active">
+            <a
+              class="px-3 py-2 flex items-center uppercase font-medium leading-relaxed text-blue-800 hover:opacity-75"
+              href="/"
+            >
+              TRANG CHỦ
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="px-3 py-2 flex items-center uppercase font-medium leading-relaxed text-blue-800 hover:opacity-75"
+              href="/dich-vu"
+              >DỊCH VỤ</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="px-3 py-2 flex items-center uppercase font-medium leading-relaxed text-blue-800 hover:opacity-75"
+              href="/khuyen-mai"
+              >KHUYẾN MÃI</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="px-3 py-2 flex items-center uppercase font-medium leading-relaxed text-blue-800 hover:opacity-75"
+              href="/tin-tuc"
+              >TIN TỨC</a
+            >
+          </li>
+        </ul>
+        <button
+          class="transition-colors ease-in-out rounded p-2.5 bg-sky-900 hover:bg-cyan-600 uppercase font-medium leading-relaxed"
+        >
+          <span class="text-base text-white"> LIÊN HỆ </span>
+        </button>
+      </div>
+    </nav>
+  </div>
 </div>

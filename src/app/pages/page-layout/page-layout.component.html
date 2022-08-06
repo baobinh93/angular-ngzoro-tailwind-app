@@ -1,3 +1,27 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
-<h3>Footer</h3>
+<div class="bg-gray-400" (scroll)="onScroll()">
+  <button
+    #buttonScrolltoTop
+    x-data="topBtn"
+    (click)="scrolltoTop()"
+    class="fixed text-white z-10 p-3 bg-[#164a6e] hover:bg-[#266a94] rounded-full shadow-md bottom-10 right-10 hover:drop-shadow-2xl"
+    [ngClass]="this.isVisible ? 'hidden' : ''"
+  >
+    <svg
+      class="w-4 h-4"
+      fill="currentColor"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2.5"
+        d="M5 10l7-7m0 0l7 7m-7-7v18"
+      ></path>
+    </svg>
+  </button>
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+  <app-footer> </app-footer>
+</div>

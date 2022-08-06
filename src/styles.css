@@ -3,3 +3,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 @import "~ng-zorro-antd/ng-zorro-antd.min.css";
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */

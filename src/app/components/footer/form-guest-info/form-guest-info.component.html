@@ -1,0 +1,141 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  <div class="flex max-w-2xl mx-auto mb-6 relative">
+    <span
+      class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+    >
+      <i class="fa-solid fa-user"></i>
+    </span>
+    <input
+      type="text"
+      formControlName="userName"
+      class="rounded-none rounded-r-lg bg-gray-50/50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      placeholder="Tên của bạn..."
+      [ngClass]="
+        this.validateForm.controls['userName'].touched &&
+        !this.validateForm.controls['userName'].valid
+          ? 'outline-red-500 border-red-500 border-2'
+          : ''
+      "
+    />
+    <span
+      class="absolute -bottom-5 left-10 text-red-600 text-sm"
+      *ngIf="
+        this.validateForm.controls['userName'].touched &&
+        !this.validateForm.controls['userName'].valid
+      "
+    >
+      *Vui lòng nhập tên của bạn
+    </span>
+  </div>
+
+  <div class="flex max-w-2xl mx-auto mb-6 relative">
+    <span
+      class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+    >
+      <i class="fa-solid fa-phone"></i>
+    </span>
+    <input
+      type="text"
+      formControlName="phone"
+      class="rounded-none rounded-r-lg bg-gray-50/50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      placeholder="Số điện thoại..."
+      [ngClass]="
+        this.validateForm.controls['phone'].touched &&
+        !this.validateForm.controls['phone'].valid
+          ? 'outline-red-500 border-red-500 border-2'
+          : ''
+      "
+    />
+    <span
+      class="absolute -bottom-5 left-10 text-red-600 text-sm"
+      *ngIf="
+        this.validateForm.controls['phone'].touched &&
+        this.validateForm.controls['phone'].errors?.['required']
+      "
+    >
+      *Vui lòng nhập số điện thoại
+    </span>
+    <span
+      class="absolute -bottom-5 left-10 text-red-600 text-sm"
+      *ngIf="
+        this.validateForm.controls['phone'].touched &&
+        this.validateForm.controls['phone'].errors?.['minlength']
+      "
+    >
+      *Số điện thoại gồm 10 chữ số
+    </span>
+    <span
+      class="absolute -bottom-5 left-10 text-red-600 text-sm"
+      *ngIf="
+      this.validateForm.controls['phone'].touched && 
+      !this.validateForm.controls['phone'].errors?.['minlength']&&
+      this.validateForm.controls['phone'].errors?.['pattern']
+    "
+    >
+      *Số điện thoại không chính xác
+    </span>
+  </div>
+
+  <div class="flex max-w-2xl mx-auto mb-6 relative">
+    <span
+      class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+    >
+      <i class="fa-solid fa-envelope"></i>
+    </span>
+    <input
+      type="text"
+      formControlName="email"
+      class="rounded-none rounded-r-lg bg-gray-50/50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      placeholder="Email..."
+    />
+    <span
+      class="absolute -bottom-5 left-10 text-red-600 text-sm"
+      *ngIf="
+    this.validateForm.controls['email'].touched && 
+    
+    this.validateForm.controls['email'].errors?.['email']
+  "
+    >
+      *Email không hợp lệ ( bạn có thể để trống)
+    </span>
+  </div>
+
+  <div class="flex max-w-2xl mx-auto mb-6 relative">
+    <select
+      id="countries"
+      formControlName="service"
+      class="appearance-none px-10 bg-gray-50/50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+    >
+      <option selected value="">--- Chọn dịch vụ của bạn ----</option>
+      <option value="tiec-cuoi">Tiệc cuới</option>
+      <option value="tiec-sinh-nhat">Tiệc sinh nhật</option>
+      <option value="hoi-nghi">Hội nghị</option>
+      <option value="tiec-di">Tiệc tại gia</option>
+    </select>
+    <span
+      class="absolute -bottom-5 left-10 text-red-600 text-sm"
+      *ngIf="
+      this.validateForm.controls['service'].touched &&
+      this.validateForm.controls['service'].errors?.['required']
+    "
+    >
+      *Vui lòng chọn dịch vụ
+    </span>
+  </div>
+  <!-- <nz-form-item>
+    <nz-form-control [nzOffset]="7" [nzSpan]="12">
+      <button nz-button nzType="primary" [disabled]="!validateForm.valid">
+        Submit
+      </button>
+      <button nz-button (click)="resetForm($event)">Reset</button>
+    </nz-form-control>
+  </nz-form-item> -->
+  <div class="flex max-w-2xl mx-auto justify-end">
+    <button
+      class="px-6 py-3 rounded-md uppercase bg-blue-900 text-white disabled:text-white disabled:bg-gray-400 text-base disabled:cursor-not-allowed"
+      [disabled]="!validateForm.valid"
+    >
+      gửi yêu cầu
+    </button>
+  </div>
+</form>
